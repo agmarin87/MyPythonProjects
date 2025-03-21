@@ -18,7 +18,6 @@ query = "SELECT table_name FROM information_schema.tables WHERE table_schema='ma
 tables = conn.execute(query).fetchall()
 print(tables)
 
-
 ## query the table
-df = conn.sql("select * from dim_orders").df()
+df = conn.sql("select * from fact_orders").df()
 print(df)
