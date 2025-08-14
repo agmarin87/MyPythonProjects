@@ -16,7 +16,7 @@ os.chdir(r"C:\Users\Antonio\my_projects\my_database\raw_data")
 fake = Faker()
 
 # constants
-num_customer = 1000
+num_customer = 500
 product_names = [
     'Laptop', 'Smartphone', 'Tablet', 'Camera', 'Printer', 'Speaker', 'Mouse', 'USB', 'Keyboard', 'Headphones', 'Earphones'
     ]
@@ -54,7 +54,7 @@ for customer in customers:
         order_id = len(orders) + 1
         orders.append({
             'order_id': order_id,
-            'customer_id': customer['customer_id'],
+            'customer_name': customer['name'],
             'product': random.choice(product_names),
             'quantity': random.randint(1,10),
             'price': round(random.uniform(10.0, 100.0), 2),
@@ -65,6 +65,7 @@ for customer in customers:
 # create dataframes
 customers_df = pd.DataFrame(customers)
 orders_df = pd.DataFrame(orders)
+
 
 # Export to CSV
 customers_df.to_csv('customers.csv', index = False)

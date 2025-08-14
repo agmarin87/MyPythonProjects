@@ -19,5 +19,6 @@ tables = conn.execute(query).fetchall()
 print(tables)
 
 ## query the table
-df = conn.sql("select * from dim_products").df()
+df = conn.sql("select * from fact_orders").df()
 print(df)
+
